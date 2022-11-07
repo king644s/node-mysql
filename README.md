@@ -10,16 +10,16 @@ npm i
 
 
 user api links : 
-users/create
-     /login
-     /update/:id **
-     /delete **
+- users/create
+-      /login
+-      /update/:id **
+-      /delete **
 
 todo api links :
 
-todo/create **
-    /get **
-    /update/:id **
-    /delete/:id **
+- todo/create **
+-     /get **
+-     /update/:id **
+-     /delete/:id **
     
 all other details can be found in the code itself
