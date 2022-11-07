@@ -1,21 +1,19 @@
-const mysql = require("mysql");
+const { Sequelize } = require("sequelize");
 
-const connection = mysql.createConnection({
+const sequelize = new Sequelize("test", "root", "", {
   host: "localhost",
-  user: "root",
-  password: "",
-  database : "test",
-  port : "3306",
-  insecureAuth : true
+  dialect:
+    "mysql" /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Connection has been established successfully.");
+  })
+  .catch((err) => {
+    console.error("Unable to connect to the database:", err);
+  });
 
-  console.log("connected as id " + connection.threadId);
-});
 
-module.exports = connection
+module.exports = sequelize
